@@ -25,11 +25,15 @@ app.use(
     })
 );
 
+// Routes
+const authRoutes = require('./routes/auth');
+
 async function main() {
 
     app.get('/', (req,res)=> {
         res.render('index.hbs')
     })
+    app.use('/auth', authRoutes);
 
 
 

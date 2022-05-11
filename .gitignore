@@ -9,3 +9,4 @@ node_modules/
 .env
 .vscode
 /MySQLRef
+database.json
