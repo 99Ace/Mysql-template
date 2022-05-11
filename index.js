@@ -33,7 +33,7 @@ async function main() {
 
 
 
-    app.listen(3000 || process.env.PORT, () => {
+    app.listen(process.env.PORT, () => {
         console.log("Server has started");
     });
 }
