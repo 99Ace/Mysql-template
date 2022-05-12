@@ -1,6 +1,9 @@
 const express = require("express");
 const hbs = require("hbs");
 const wax = require("wax-on");
+const session = require('express-session');
+const flash = require('connect-flash');
+const FileStore = require('session-file-store')(session);
 
 // Setup dotenv
 require("dotenv").config();
@@ -25,12 +28,28 @@ app.use(
     })
 );
 
+// set up sessions
+app.use(session({
+    store: new FileStore(),
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
+
+app.use(flash())
+// Register Flash middleware
+app.use(function (req, res, next) {
+    res.locals.success_messages = req.flash("success_messages");
+    res.locals.error_messages = req.flash("error_messages");
+    next();
+});
+
 // Routes
 const authRoutes = require('./routes/auth');
 
 async function main() {
 
-    app.get('/', (req,res)=> {
+    app.get('/', (req, res) => {
         res.render('index.hbs')
     })
     app.use('/auth', authRoutes);
