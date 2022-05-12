@@ -1,5 +1,13 @@
 const express = require("express");
 const router = express.Router(); // #1 - Create a new express Router
+const crypto = require('crypto');
+
+// Hash password function
+const getHashedPassword = (password) => {
+    const sha256 = crypto.createHash('sha256');
+    const hash = sha256.update(password).digest('base64');
+    return hash;
+}
 
 // import in the Forms
 const { bootstrapField, createRegistrationForm } = require('../forms');
@@ -23,7 +31,7 @@ router.post('/register', (req, res) => {
         success: async (form) => {
             const user = new User({
                 'username': form.data.username,
-                'password': form.data.password,
+                'password': getHashedPassword(form.data.password),
                 'email': form.data.email
             });
             await user.save();
@@ -37,7 +45,10 @@ router.post('/register', (req, res) => {
         }
     })
 })
-
+router.get('/logout', (req, res) => {
+   
+    res.send('logout')
+})
 
 
 // Profile Route
@@ -49,10 +60,7 @@ router.get('/login', (req, res) => {
    
     res.render('auth/login.hbs')
 })
-router.get('/logout', (req, res) => {
-   
-    res.send('logout')
-})
+
 
 
 module.exports = router; // #3 export out the router
