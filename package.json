@@ -60,6 +60,7 @@
     "cookie-signature": "^1.0.6",
     "copy-descriptor": "^0.1.1",
     "core-util-is": "^1.0.3",
+    "cors": "^2.8.5",
     "create-frame": "^1.0.0",
     "date.js": "^0.3.3",
     "db-migrate": "^0.11.13",
