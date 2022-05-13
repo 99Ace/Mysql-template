@@ -4,6 +4,7 @@ const wax = require("wax-on");
 const session = require('express-session');
 const flash = require('connect-flash');
 const FileStore = require('session-file-store')(session);
+const cors = require('cors')
 
 // Setup dotenv
 require("dotenv").config();
@@ -27,6 +28,9 @@ app.use(
         extended: false
     })
 );
+
+// set up CORS 
+app.use(cors());
 
 // set up sessions
 app.use(session({
