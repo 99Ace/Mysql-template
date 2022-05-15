@@ -1,12 +1,8 @@
 {
   "dev": {
-    "driver": {"ENV" :"DB_DRIVER"},
-    "user": {"ENV": "DB_USER" },
-    "password": {"ENV":"DB_PASSWORD"},
-    "database": {"ENV":"DB_DATABASE"},
-    "host": {"ENV":"DB_HOST"},
-    "ssl": {
-         "rejectUnauthorized": false
-    }
+    "driver":"mysql",
+    "user": "mikar",
+    "password": "M988m988!",
+    "database": "Acelearning"
   }
 }

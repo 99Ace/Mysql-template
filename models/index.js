@@ -4,4 +4,8 @@ const User = bookshelf.model('User', {
     tableName:'users'
 });
 
-module.exports = { User };
+const Provider = bookshelf.model('Provider', {
+    tableName:'providers'
+});
+
+module.exports = { User, Provider };

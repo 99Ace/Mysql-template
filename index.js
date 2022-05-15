@@ -50,6 +50,7 @@ app.use(function (req, res, next) {
 
 // Routes
 const authRoutes = require('./routes/auth');
+const providerRoutes = require('./routes/provider');
 
 async function main() {
 
@@ -57,10 +58,11 @@ async function main() {
         res.render('index.hbs')
     })
     app.use('/auth', authRoutes);
+    app.use('/provider', providerRoutes);
 
 
 
-    app.listen(process.env.PORT, () => {
+    app.listen(3000, () => {
         console.log("Server has started");
     });
 }

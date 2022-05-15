@@ -83,4 +83,63 @@ const createLoginForm = () => {
         }),
     })
 }
-module.exports = { createRegistrationForm, bootstrapField, createLoginForm };
+
+// Create Registeration Form
+const createNewBizForm = () => {
+    return forms.create({
+        'company_name': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
+            }
+        }),
+        'uen': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
+            }
+        }),
+        'blk_hse': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
+            }
+        }),
+        'street_name': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
+            }
+        }),
+        'floor_no': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
+            }
+        }),
+        'unit_no': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
+            }
+        }),
+        'postal': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
+            }
+        }),
+    })
+}
+module.exports = { 
+    bootstrapField, 
+    createRegistrationForm, createLoginForm,
+    createNewBizForm    
+};

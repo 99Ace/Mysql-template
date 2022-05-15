@@ -10,3 +10,5 @@ node_modules/
 .vscode
 /MySQLRef
 /sessions
+database_deploy.json
+bookshelf/index_deploy.js
